@@ -24,6 +24,8 @@ public class FormCheckTest {
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("ivan@ivanov.com");
@@ -35,14 +37,12 @@ public class FormCheckTest {
         $(".react-datepicker__day--028").click();
         $("#subjectsInput").setValue("Ma").pressEnter();
         $$("label").findBy(text("Music")).click();
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\Любовь\\Documents\\Обучение\\test.jpg"));
+        $("#uploadPicture").uploadFromClasspath("test.jpg");
         $("#currentAddress").setValue("Some street 1");
-        $("#state").scrollIntoView(true);
         $("#state").click();
         $(byText("Haryana")).click();
         $("#city").click();
         $(byText("Karnal")).click();
-        $("#submit").scrollIntoView(true);
         $("#submit").click();
 
 
