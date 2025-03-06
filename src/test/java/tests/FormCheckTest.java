@@ -43,8 +43,6 @@ public class FormCheckTest {
         $(byText("Karnal")).click();
         $("#submit").click();
 
-
-
         $(".modal-content").shouldBe(visible);
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".modal-content").shouldHave(text("Ivan" + " " + "Ivanov"));
@@ -58,15 +56,6 @@ public class FormCheckTest {
         $(".modal-content").shouldHave(text("Some street 1"));
         $(".modal-content").shouldHave(text("Haryana" + " " + "Karnal"));
 
-
-
-
-
-
-
-
-
     }
-
 
 }
