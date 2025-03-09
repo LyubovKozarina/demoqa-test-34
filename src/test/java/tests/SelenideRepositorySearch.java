@@ -24,7 +24,7 @@ public class SelenideRepositorySearch {
 
         //проверка наличия заголовка, содержащего JUnit5
         $(".markdown-body").shouldHave(text("Using JUnit5 extend test class"));
-        //проверка в коде наличия анатации, используемой для в JUnit 5
+        //проверка наличия в коде анатации, используемой в JUnit 5
         $("body").shouldHave(text("@ExtendWith"));
 
 
