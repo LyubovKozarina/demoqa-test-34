@@ -22,10 +22,17 @@ public class SelenideRepositorySearch {
         //найти в списке страниц Soft Assertions и  перейти на нее
         $$("ul li a").findBy(text("Soft assertions")).click();
 
-        //проверка наличия заголовка, содержащего JUnit5
-        $(".markdown-body").shouldHave(text("Using JUnit5 extend test class"));
-        //проверка наличия в коде анатации, используемой в JUnit 5
-        $("body").shouldHave(text("@ExtendWith"));
-
+        //проверка наличие внутри примера кода для JUnit5
+        $("body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "void test() {\n" +
+                "Configuration.assertionMode = SOFT;\n" +
+                "open(\"page.html\");\n" +
+                "\n" +
+                "$(\"#first\").should(visible).click();\n" +
+                "$(\"#second\").should(visible).click();\n" +
+                "}\n" +
+                "}"));
     }
 }
