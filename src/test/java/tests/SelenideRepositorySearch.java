@@ -27,8 +27,5 @@ public class SelenideRepositorySearch {
         //проверка наличия в коде анатации, используемой в JUnit 5
         $("body").shouldHave(text("@ExtendWith"));
 
-
-
-
     }
 }
