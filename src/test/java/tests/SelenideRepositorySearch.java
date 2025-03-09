@@ -15,7 +15,7 @@ public class SelenideRepositorySearch {
         // ввести в поле поиска selenide и нажать enter
         $("[placeholder='Search or jump to...']").click();
         $("#query-builder-test").setValue("selenide").pressEnter();
-        // кликнуть на первый репозиторий из списка найденых
+        // кликнуть на первый репозиторий из списка найденных
         $$("[data-testid='results-list']").first().$("a").click();
         //найти раздел Wiki проекта и перейти в него
         $("#wiki-tab").click();
