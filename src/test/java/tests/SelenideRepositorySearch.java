@@ -22,7 +22,7 @@ public class SelenideRepositorySearch {
         //найти в списке страниц Soft Assertions и  перейти на нее
         $$("ul li a").findBy(text("Soft assertions")).click();
 
-        //проверка наличие внутри примера кода для JUnit5
+        //проверка наличия внутри примера кода для JUnit5
         $("body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
                 "  @Test\n" +
