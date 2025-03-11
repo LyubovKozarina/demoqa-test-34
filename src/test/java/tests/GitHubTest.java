@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class GitHubTest {
     @Test
+
     void shouldOpenEnterprisePage() {
         open("https://github.com/");
         $$("ul li").findBy(text("Solutions")).hover();
