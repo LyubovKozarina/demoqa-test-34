@@ -11,6 +11,8 @@ public class DragAndDropTest {
     @Test
     void shouldMovingRectangleTest() {
         Selenide.open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
         Actions actions = Selenide.actions();
         actions.dragAndDrop($("#column-a").toWebElement(), $("#column-b").toWebElement()).perform();
         //$("#column-a").dragAndDropTo($("#column-b")); //не работает
