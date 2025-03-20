@@ -111,5 +111,4 @@ public class FormPage {
         lastName.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         phone.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
     }
-
 }
