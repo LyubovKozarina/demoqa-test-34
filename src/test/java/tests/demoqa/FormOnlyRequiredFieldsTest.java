@@ -9,6 +9,7 @@ public class FormOnlyRequiredFieldsTest extends TestBase {
     @Test
     void fillFormIncompleteTest() {
         formPage.openPage()
+                .removeBanner()
                 .setFirstName("Ivan")
                 .setLastName("Ivanov")
                 .selectGender()

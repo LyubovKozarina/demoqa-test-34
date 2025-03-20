@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class FormPage {
-    private SelenideElement firstName = $("#firstName"),
+    private final SelenideElement firstName = $("#firstName"),
             lastName = $("#lastName"),
             email = $("#userEmail"),
             genderMale = $$("label").findBy(text("Male")),
@@ -29,6 +29,10 @@ public class FormPage {
 
     public FormPage openPage() {
         open("/automation-practice-form");
+        return this;
+    }
+
+    public FormPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;

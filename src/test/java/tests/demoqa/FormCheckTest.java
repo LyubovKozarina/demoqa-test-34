@@ -9,6 +9,7 @@ public class FormCheckTest extends TestBase {
     @Test
     void fillFormTest() {
         formPage.openPage()
+                .removeBanner()
                 .setFirstName("Ivan")
                 .setLastName("Ivanov")
                 .setEmail("ivan@ivanov.com")

@@ -9,6 +9,7 @@ public class FormValidationTest extends TestBase {
     @Test
     void requiredFieldsValidationTest() {
         formPage.openPage()
+                .removeBanner()
                 .submit();
 
         formPage.verifyRedBorderForRequiredFields();
