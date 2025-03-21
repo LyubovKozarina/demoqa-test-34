@@ -13,19 +13,17 @@ public class FormPage {
     private final SelenideElement firstName = $("#firstName"),
             lastName = $("#lastName"),
             email = $("#userEmail"),
-            genderMale = $$("label").findBy(text("Male")),
             phone = $("#userNumber"),
             calendarInput = $("#dateOfBirthInput"),
             subjects = $("#subjectsInput"),
-            hobbiesMusic = $$("label").findBy(text("Music")),
             uploadPicture = $("#uploadPicture"),
             address = $("#currentAddress"),
             state = $("#state"),
             city = $("#city"),
             submitButton = $("#submit");
 
-    private DatePicker datePicker = new DatePicker();
-    private ModalDialog modalDialog = new ModalDialog();
+    private final DatePicker datePicker = new DatePicker();
+    private final ModalDialog modalDialog = new ModalDialog();
 
     public FormPage openPage() {
         open("/automation-practice-form");
@@ -53,8 +51,8 @@ public class FormPage {
         return this;
     }
 
-    public FormPage selectGender() {
-        genderMale.click();
+    public FormPage selectGender(String gender) {
+        $$("label").findBy(text(gender)).click();
         return this;
     }
 
@@ -74,8 +72,8 @@ public class FormPage {
         return this;
     }
 
-    public FormPage selectHobby() {
-        hobbiesMusic.click();
+    public FormPage selectHobby(String hobby) {
+        $$("label").findBy(text(hobby)).click();
         return this;
     }
 

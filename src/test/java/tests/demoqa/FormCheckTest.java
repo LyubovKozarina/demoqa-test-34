@@ -5,34 +5,37 @@ import pages.FormPage;
 
 public class FormCheckTest extends TestBase {
     private final FormPage formPage = new FormPage();
+    private final TestData testData = new TestData();
 
     @Test
     void fillFormTest() {
         formPage.openPage()
                 .removeBanner()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setEmail("ivan@ivanov.com")
-                .selectGender()
-                .setPhone("1234567890")
-                .setDateOfBirth("28", "February", "2000")
-                .setSubject("Maths")
-                .selectHobby()
-                .uploadPicture("test.jpg")
-                .setAddress("Some street 1")
-                .selectStateAndCity("Haryana", "Karnal")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.email)
+                .selectGender(testData.gender)
+                .setPhone(testData.phoneNumber)
+                .setDateOfBirth(testData.birthDay, testData.birthMonth, testData.birthYear)
+                .setSubject(testData.subject)
+                .selectHobby(testData.hobby)
+                .uploadPicture(TestData.picture)
+                .setAddress(testData.address)
+                .selectStateAndCity(testData.state, testData.city)
                 .submit();
 
         formPage.getModalDialog().verifyModalTitle("Thanks for submitting the form");
-        formPage.getModalDialog().verifyField("Ivan Ivanov");
-        formPage.getModalDialog().verifyField("ivan@ivanov.com");
-        formPage.getModalDialog().verifyField("Male");
-        formPage.getModalDialog().verifyField("1234567890");
-        formPage.getModalDialog().verifyField("28 February,2000");
-        formPage.getModalDialog().verifyField("Maths");
-        formPage.getModalDialog().verifyField("Music");
-        formPage.getModalDialog().verifyField("test.jpg");
-        formPage.getModalDialog().verifyField("Some street 1");
-        formPage.getModalDialog().verifyField("Haryana Karnal");
+        formPage.getModalDialog().verifyField(testData.firstName + " " + testData.lastName);
+        formPage.getModalDialog().verifyField(testData.email);
+        formPage.getModalDialog().verifyField(testData.gender);
+        formPage.getModalDialog().verifyField(testData.phoneNumber);
+        formPage.getModalDialog().verifyField(testData.birthDay + " " + testData.birthMonth + "," + testData.birthYear);
+        formPage.getModalDialog().verifyField(testData.subject);
+        formPage.getModalDialog().verifyField(testData.hobby);
+        formPage.getModalDialog().verifyField(TestData.picture);
+        formPage.getModalDialog().verifyField(testData.address);
+        formPage.getModalDialog().verifyField(testData.state + " " + testData.city);
     }
+
 }
+
