@@ -13,35 +13,21 @@ public class TestData {
     public final String phoneNumber = faker.numerify("##########");
     public final String address = faker.address().fullAddress();
     public static final String picture = "test.jpg";
-    public final String gender = getRandomValue(new String[]{"Male", "Female", "Other"});
-    public final String subject = getRandomValue(new String[]{"Maths", "Physics", "English", "History", "Computer Science"});
-    public final String hobby = getRandomValue(new String[]{"Sports", "Reading", "Music"});
-    public final String state = getRandomValue(new String[]{"NCR", "Haryana", "Uttar Pradesh", "Rajasthan"});
-    public final String city = generateRandomCity(state);
-    public final String birthDay = String.valueOf(random.nextInt(28) + 1);
-    public final String birthMonth = getRandomMonth();
+    public final String gender = faker.options().option("Male", "Female", "Other");
+    public final String subject = faker.options().option("Maths", "Physics", "English", "History", "Computer Science");
+    public final String hobby = faker.options().option("Sports", "Reading", "Music");
+    public final String state = faker.options().option("NCR", "Haryana", "Uttar Pradesh", "Rajasthan");
+    public final String city = switch (state) {
+        case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+        case "Haryana" -> faker.options().option("Karnal", "Panipat");
+        case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+        case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+        default -> "Unknown";
+    };
+    public final String birthDay = String.valueOf(faker.number().numberBetween(1, 29));
+    public final String birthMonth = faker.options().option(
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+    );
     public final String birthYear = String.valueOf(faker.number().numberBetween(1970, 2010));
-
-
-    private static String getRandomValue(String[] array) {
-        return array[random.nextInt(array.length)];
     }
-
-    private static String getRandomMonth() {
-        String[] months = {
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-        };
-        return months[random.nextInt(months.length)];
-    }
-
-    private static String generateRandomCity(String state) {
-        return switch (state) {
-            case "NCR" -> getRandomValue(new String[]{"Delhi", "Gurgaon", "Noida"});
-            case "Haryana" -> getRandomValue(new String[]{"Karnal", "Panipat"});
-            case "Uttar Pradesh" -> getRandomValue(new String[]{"Agra", "Lucknow", "Merrut"});
-            case "Rajasthan" -> getRandomValue(new String[]{"Jaipur", "Jaiselmer"});
-            default -> "Unknown";
-        };
-    }
-}
