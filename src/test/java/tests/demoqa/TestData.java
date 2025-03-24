@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class TestData {
     private static final Faker faker = new Faker();
-    private static final Random random = new Random();
 
     public final String firstName = faker.name().firstName();
     public final String lastName = faker.name().lastName();
