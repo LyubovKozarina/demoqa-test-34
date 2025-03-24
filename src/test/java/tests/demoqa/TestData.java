@@ -1,7 +1,6 @@
 package tests.demoqa;
 
 import com.github.javafaker.Faker;
-import java.util.Random;
 
 public class TestData {
     private static final Faker faker = new Faker();
