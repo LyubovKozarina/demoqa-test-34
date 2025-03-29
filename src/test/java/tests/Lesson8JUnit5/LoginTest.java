@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selenide.open;
 public class LoginTest extends TestBase {
     @ParameterizedTest(name ="Проверяет успешный логин пользователя с Email={0}")
     @CsvSource({
-    "0123@yandex.ru, 0123@yandex.ru ",
+    "0123@yandex.ru, 0123@yandex.ru",
     "4567@yandex.ru, 4567@yandex.ru",
-    "8910@yandex.ru, 8910@yandex.ru "
+    "8910@yandex.ru, 8910@yandex.ru"
     })
     void LoginFunctionalityTest(String email, String password) {
         open(baseUrl + "/login");;
