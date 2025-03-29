@@ -2,14 +2,12 @@ package tests.Lesson8JUnit5;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import tests.demoqa.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static tests.Lesson8JUnit5.TestBase.baseUrl;
 
-public class LoginTest {
+public class LoginTest extends TestBase {
     @ParameterizedTest
     @CsvSource({
     "0123@yandex.ru, 0123@yandex.ru ",
