@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SearchTest extends TestBase {
-    @ParameterizedTest
+    @ParameterizedTest(name ="Для поискового запроса {0} должен отдавать не пустой список карточек")
     @ValueSource(strings = {"Laptop", "Phone", "Desktop"})
     void SearchFunctionalityTest(String query) {
         $("#small-searchterms").setValue(query).pressEnter();

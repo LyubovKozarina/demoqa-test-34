@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTest extends TestBase {
-    @ParameterizedTest
+    @ParameterizedTest(name ="Проверяет успешный логин пользователя с Email={0}")
     @CsvSource({
     "0123@yandex.ru, 0123@yandex.ru ",
     "4567@yandex.ru, 4567@yandex.ru",

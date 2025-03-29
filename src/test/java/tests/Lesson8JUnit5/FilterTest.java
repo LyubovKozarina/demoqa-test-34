@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FilterTest extends TestBase{
-    @ParameterizedTest
+    @ParameterizedTest(name = "Проверяет работу фильтрация товаров по категории {0}")
     @EnumSource(Category.class)
     void testFilterFunctionality(Category category) {
         $("a[href*='" + category.name().toLowerCase()+"']").click();
