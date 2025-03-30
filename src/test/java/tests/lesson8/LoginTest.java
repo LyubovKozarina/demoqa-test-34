@@ -1,5 +1,6 @@
 package tests.lesson8;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -15,7 +16,7 @@ public class LoginTest extends TestBase {
             "8910@yandex.ru, 8910@yandex.ru"
     })
     void shouldLoginSuccessfullyWithValidCredentials(String email, String password) {
-        open(baseUrl + "/login");
+        open(Configuration.baseUrl + "/login");
         $("#Email").setValue(email);
         $("#Password").setValue(password);
         $("input[value='Log in']").click();
