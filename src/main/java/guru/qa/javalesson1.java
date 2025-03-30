@@ -1,6 +1,6 @@
 package guru.qa;
 
-public class JavaLesson1 {
+public class javalesson1 {
 
     public static void main(String[] args) {
         int a = 100;

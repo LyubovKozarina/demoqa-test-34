@@ -1,4 +1,4 @@
-package guru.qa.JavaLesson2;
+package guru.qa.javalesson2;
 
 import java.util.HashMap;
 import java.util.Map;

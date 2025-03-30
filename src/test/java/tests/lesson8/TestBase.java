@@ -1,6 +1,8 @@
-package tests.Lesson8JUnit5;
+package tests.lesson8;
 
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
@@ -10,4 +12,11 @@ public class TestBase {
     void setUp() {
         Selenide.open(baseUrl);
     }
+
+    @AfterEach
+    void afterEach() {
+        Selenide.closeWebDriver();
+    }
 }
+
+

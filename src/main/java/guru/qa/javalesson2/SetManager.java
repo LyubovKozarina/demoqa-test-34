@@ -1,4 +1,4 @@
-package guru.qa.JavaLesson2;
+package guru.qa.javalesson2;
 
 import java.util.HashSet;
 import java.util.Iterator;

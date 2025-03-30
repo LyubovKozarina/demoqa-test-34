@@ -1,4 +1,4 @@
-package guru.qa.JavaLesson2;
+package guru.qa.javalesson2;
 
 public class CollectionTest {
     public static void main(String[] args) {
