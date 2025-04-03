@@ -1,4 +1,4 @@
-package tests;
+package tests.lesson5;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
