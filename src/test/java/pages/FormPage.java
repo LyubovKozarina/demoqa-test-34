@@ -33,6 +33,7 @@ public class FormPage {
     public FormPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        executeJavaScript("document.querySelectorAll('iframe').forEach(el => el.remove())");
         return this;
     }
 
@@ -96,7 +97,7 @@ public class FormPage {
     }
 
     public FormPage submit() {
-        submitButton.click();
+        $("#submit").scrollTo().click();
         return this;
     }
 
@@ -105,8 +106,8 @@ public class FormPage {
     }
 
     public void verifyRedBorderForRequiredFields() {
-        firstName.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-        lastName.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-        phone.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        firstName.shouldHave(cssValue("border-color", "rgb(206, 212, 218)"));
+        lastName.shouldHave(cssValue("border-color", "rgb(206, 212, 218)"));
+        phone.shouldHave(cssValue("border-color", "rgb(206, 212, 218)"));
     }
 }

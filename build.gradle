@@ -1,7 +1,23 @@
 plugins {
     id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
 }
+group 'org.example'
+version '1.0-SNAPSHOT'
 
+allure {
+    report {
+        version.set("2.24.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.24.0")
+            }
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
@@ -16,10 +32,25 @@ dependencies {
             'com.codeborne:pdf-test:1.5.0',
             'com.codeborne:xls-test:1.4.3',
             'com.opencsv:opencsv:5.9',
-            'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+            'com.fasterxml.jackson.core:jackson-databind:2.15.0',
+            'io.qameta.allure:allure-selenide:2.19.0'
     )
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.0')
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa")
+    }
 }
