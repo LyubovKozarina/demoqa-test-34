@@ -31,11 +31,19 @@ public class FormPage {
     }
 
     public FormPage removeBanner() {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("document.querySelectorAll('iframe').forEach(el => el.remove())");
+        executeJavaScript("document.querySelectorAll('#fixedban, footer, iframe').forEach(el => el.remove())");
+        waitUntilIframesGone();
         return this;
     }
+
+    private void waitUntilIframesGone() {
+        for (int i = 0; i < 10; i++) {
+            if ($$("iframe").isEmpty()) break;
+            sleep(500);
+            executeJavaScript("document.querySelectorAll('iframe').forEach(el => el.remove())");
+        }
+    }
+
 
     public FormPage setFirstName(String value) {
         firstName.setValue(value);
@@ -74,7 +82,7 @@ public class FormPage {
     }
 
     public FormPage selectHobby(String hobby) {
-        $$("label").findBy(text(hobby)).click();
+        $$("label").findBy(text(hobby)).scrollIntoView(true).click();
         return this;
     }
 
