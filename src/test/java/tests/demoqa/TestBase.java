@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class TestBase {
@@ -23,17 +22,11 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", "125.0");
         Configuration.remote = System.getProperty("remoteUrl", "");
 
-        Map<String, Object> selenoidOptions = new HashMap<>();
-        selenoidOptions.put("enableVNC", true);
-        selenoidOptions.put("enableVideo", true);
-
-        String screenResolution = System.getProperty("screenResolution");
-        if (screenResolution != null && !screenResolution.isBlank()) {
-            selenoidOptions.put("screenResolution", screenResolution);
-        }
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", selenoidOptions);
+        capabilities.setCapability("selenoid:options", Map.of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
         Configuration.browserCapabilities = capabilities;
     }
 
